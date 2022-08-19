@@ -2,7 +2,9 @@ package com.example.bmicalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,17 +46,42 @@ public class MainActivity extends AppCompatActivity
 
                 heightString = heightInput.getText().toString();
                 weightString = weightInput.getText().toString(); // Getting values of weight and height from EditText as string
+                if (TextUtils.isEmpty(heightString)) // Checking weather height field is empty
+                {
+                    outputTextView.setText("Height field is empty!");
+                    outputTextView.setTextColor(Color.RED);
+                }
+                else if (TextUtils.isEmpty(weightString)) // Checking weather weight field is empty
+                {
+                    outputTextView.setText("Weight field is empty!");
+                    outputTextView.setTextColor(Color.RED);
+                }
+                else
+                {
+                    height = Double.parseDouble(heightString); // Converting received string to double for the further evaluation
+                    weight = Double.parseDouble(weightString);
 
-                height = Double.parseDouble(heightString);
-                weight = Double.parseDouble(weightString); // Converting weight string to double
-                height = height/100.0; // Converting height value from centimeter to meter
-                BMI = weight/(height*height); // BMI calculation
-
-                outputTextView.setText("Your BMI Value is "+BMI); // Setting outputTextView's text
+                    if (weight == 0 || height == 0) // Checking weather height or weight is zero
+                    {
+                    outputTextView.setText("Enter a non zero value of weight or height!");
+                    outputTextView.setTextColor(Color.RED);
+                    }
+                    else if (height <= 100 || height >= 300) // Checking bound for height
+                    {
+                        outputTextView.setText("Height value should be in range of 100cm to 300cm");
+                        outputTextView.setTextColor(Color.RED);
+                    }
+                    else
+                    {
+                        height = height / 100.0; // Converting height from centimeter to meter
+                        BMI = weight / (height * height); // Calculating BMI
+                        outputTextView.setTextColor(Color.BLUE);
+                        outputTextView.setText(String.format("Your BMI is %.2f",BMI)); // Setting text of outputTextView
+                    }
+                }
             }
         });
 
-
+        }
 
     }
-}
