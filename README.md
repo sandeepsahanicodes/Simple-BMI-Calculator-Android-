@@ -1,4 +1,4 @@
-# Simple-BMI-Calculator-Android-
+# Simple-BMI-Calculator
 ## About this app
 This is simple android based BMI Calculator.
 ## App in action
