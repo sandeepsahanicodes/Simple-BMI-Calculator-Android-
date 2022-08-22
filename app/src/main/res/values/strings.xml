@@ -3,4 +3,11 @@
     <string name="enter_height">Enter Your Height</string>
     <string name="enter_weight">Enter Your Weight</string>
     <string name="btn_text">Calculate</string>
+    <string name="empty_field_warning_height">Height field is empty!</string>
+    <string name="empty_field_warning_weight">Weight field is empty!</string>
+    <string name="zero_input_warning">Weight field is empty!</string>
+
+    <string name="op_text">Height value should be in range of 100cm to 300cm</string>
+
+
 </resources>

@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity
                 weightString = weightInput.getText().toString(); // Getting values of weight and height from EditText as string
                 if (TextUtils.isEmpty(heightString)) // Checking weather height field is empty
                 {
-                    outputTextView.setText("Height field is empty!");
+                    outputTextView.setText(R.string.empty_field_warning_height);
                     outputTextView.setTextColor(Color.RED);
                 }
                 else if (TextUtils.isEmpty(weightString)) // Checking weather weight field is empty
                 {
-                    outputTextView.setText("Weight field is empty!");
+                    outputTextView.setText(R.string.empty_field_warning_weight);
                     outputTextView.setTextColor(Color.RED);
                 }
                 else
@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity
 
                     if (weight == 0 || height == 0) // Checking weather height or weight is zero
                     {
-                    outputTextView.setText("Enter a non zero value of weight or height!");
+                    outputTextView.setText(R.string.zero_input_warning);
                     outputTextView.setTextColor(Color.RED);
                     }
                     else if (height <= 100 || height >= 300) // Checking bound for height
                     {
-                        outputTextView.setText("Height value should be in range of 100cm to 300cm");
+                        outputTextView.setText(R.string.op_text);
                         outputTextView.setTextColor(Color.RED);
                     }
                     else
